@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./navbarComponent.css";
+//redux
+import { useDispatch } from "react-redux";
+import { getWeatherData, getCityName } from "../../reducers/weatherDataReducer";
+
 const NavbarComponet = () => {
 	const [cityResearched, setCityResearched] = useState("");
+	const [location, setLocation] = useState(null);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (cityResearched) {
+			dispatch(getWeatherData(location));
+			dispatch(getCityName(location));
+		}
+	}, [cityResearched, location]);
 
 	const getCoordinate = async (e) => {
 		e.preventDefault();
@@ -16,6 +29,10 @@ const NavbarComponet = () => {
 					}
 				);
 				const data = await response.json();
+				setLocation({
+					latitude: data[0].lat,
+					longitude: data[0].lon,
+				});
 				console.log(
 					"Coordinate sono, latitudine" +
 						data[0].lat +

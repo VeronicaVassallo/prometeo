@@ -1,9 +1,10 @@
 import { useEffect } from "react";
+//redux
 import { useDispatch, useSelector } from "react-redux";
 import {
 	getWeatherData,
 	getUserLocation,
-	setCity,
+	getCityName,
 } from "../../reducers/weatherDataReducer";
 
 const CardComponent = () => {
@@ -20,26 +21,9 @@ const CardComponent = () => {
 	useEffect(() => {
 		if (location) {
 			dispatch(getWeatherData(location));
-			getCityName(location);
+			dispatch(getCityName(location));
 		}
 	}, [location, dispatch]);
-
-	const getCityName = async () => {
-		try {
-			const response = await fetch(
-				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${location.latitude}&lon=${location.longitude}&zoom=10`
-			);
-			const data = await response.json();
-			const cityName =
-				data.address.city ||
-				data.address.town ||
-				data.address.village ||
-				"Città non trovata";
-			dispatch(setCity(cityName));
-		} catch (error) {
-			console.log("Error during getting the name of the city", error);
-		}
-	};
 
 	return (
 		<div>

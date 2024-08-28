@@ -32,6 +32,22 @@ export const getUserLocation = createAsyncThunk(
 	}
 );
 
+export const getCityName = createAsyncThunk(
+	"city/getCityName",
+	async (location) => {
+		const response = await fetch(
+			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${location.latitude}&lon=${location.longitude}&zoom=10`
+		);
+		const data = await response.json();
+		const cityName =
+			data.address.city ||
+			data.address.town ||
+			data.address.village ||
+			"Città non trovata";
+		return cityName;
+	}
+);
+
 const weatherSlice = createSlice({
 	name: "weather",
 	initialState: {
@@ -91,6 +107,9 @@ const weatherSlice = createSlice({
 			.addCase(getWeatherData.rejected, (state, action) => {
 				state.status = "failed";
 				state.error = action.error.message;
+			})
+			.addCase(getCityName.fulfilled, (state, action) => {
+				state.city = action.payload;
 			});
 	},
 });
