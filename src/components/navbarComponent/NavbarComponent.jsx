@@ -3,9 +3,31 @@ import "./navbarComponent.css";
 const NavbarComponet = () => {
 	const [cityResearched, setCityResearched] = useState("");
 
-	const showValue = (e) => {
+	const getCoordinate = async (e) => {
 		e.preventDefault();
-		console.log("la citta ricercata è:", cityResearched);
+		if (cityResearched) {
+			try {
+				const response = await fetch(
+					`https://nominatim.openstreetmap.org/search?q=${cityResearched}&format=json`,
+					{
+						headers: {
+							"User-Agent": "vvassallo@gmail.com",
+						},
+					}
+				);
+				const data = await response.json();
+				console.log(
+					"Coordinate sono, latitudine" +
+						data[0].lat +
+						" longitugine " +
+						data[0].lon
+				);
+			} catch (error) {
+				console.log("Error during getting Coordinates data from name", error);
+			}
+		} else {
+			alert("Inserire il nome di una città");
+		}
 	};
 
 	return (
@@ -19,7 +41,7 @@ const NavbarComponet = () => {
 					value={cityResearched}
 					onChange={(e) => setCityResearched(e.target.value)}
 				/>
-				<button type="button" onClick={showValue}>
+				<button type="button" onClick={getCoordinate}>
 					Cerca
 				</button>
 			</div>
