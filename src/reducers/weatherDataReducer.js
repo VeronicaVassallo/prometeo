@@ -4,9 +4,10 @@ export const getWeatherData = createAsyncThunk(
 	"weather/getWeatherData",
 	async (location) => {
 		const response = await fetch(
-			`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&hourly=temperature_2m&temperature_unit=celsius`
+			`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=celsius`
 		);
 		const data = await response.json();
+		console.log("DATI API METEO", data);
 		return data;
 	}
 );
@@ -53,6 +54,9 @@ const weatherSlice = createSlice({
 	initialState: {
 		temperature: null, //Temperatura corrente
 		temperatureList: [], //Lista di oggetti, tipo "dizionario" {time + temperature}
+		weatherCodeList: [], //Lista con i codici della previsione del tempo
+		windList: [],
+		humidityList: [],
 		city: "",
 		location: null,
 		status: "idle", // idle (stato iniziale), loading, succeeded, failed --> traccia lo stato della richiesta asincrona

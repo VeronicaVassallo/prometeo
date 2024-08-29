@@ -8,7 +8,6 @@ import {
 } from "../../reducers/weatherDataReducer";
 
 const CardComponent = () => {
-	//TO DO: impostare la latitudine e la longitudine manualmente
 	//TO DO: inegrare Axios per le chiamate API
 	const dispatch = useDispatch();
 	const weather = useSelector((state) => state.weather);
