@@ -7,18 +7,19 @@ import { getWeatherData, getCityName } from "../../reducers/weatherDataReducer";
 //bootstrap
 import Button from "react-bootstrap/Button";
 
-const NavbarComponet = () => {
+const NavbarComponent = () => {
 	const [cityResearched, setCityResearched] = useState("");
 	const [location, setLocation] = useState(null);
-	const [messagge, setMessage] = useState("");
+	const [message, setMessage] = useState("");
+	const [showNavbar, setShowNavbar] = useState(false);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (cityResearched) {
+		if (location) {
 			dispatch(getWeatherData(location));
 			dispatch(getCityName(location));
 		}
-	}, [cityResearched, location]);
+	}, [location]);
 
 	const getCoordinate = async (e) => {
 		e.preventDefault();
@@ -33,13 +34,17 @@ const NavbarComponet = () => {
 					}
 				);
 				const data = await response.json();
-				setLocation({
-					latitude: data[0].lat,
-					longitude: data[0].lon,
-				});
-				setMessage("");
+				if (data.length > 0) {
+					setLocation({
+						latitude: data[0].lat,
+						longitude: data[0].lon,
+					});
+					setMessage("");
+				} else {
+					setMessage("Inserire un nome di città esistente");
+				}
 			} catch (error) {
-				setMessage("Inserire un nome di città esistente");
+				setMessage("Errore durante il recupero dei dati");
 				console.log("Error during getting Coordinates data from name", error);
 			}
 		} else {
@@ -47,36 +52,70 @@ const NavbarComponet = () => {
 		}
 	};
 
+	const handleShow = () => {
+		setShowNavbar(!showNavbar);
+	};
+
 	return (
-		<form className="navbar">
-			<div className="researchCity">
-				<label htmlFor="researchCity"> Seleziona Città: </label>
-				<div className="inputContainer">
-					<input
-						type="text"
-						id="researchCity"
-						name="researchCity"
-						value={cityResearched}
-						onChange={(e) => setCityResearched(e.target.value)}
+		<div className="d-flex">
+			{showNavbar ? (
+				<nav>
+					<form className="d-flex justify-content-around contanirForm">
+						<div className="researchCity">
+							<label htmlFor="researchCity"> Città </label>
+							<div className="inputContainer">
+								<input
+									className="mx-1"
+									type="text"
+									id="researchCity"
+									name="researchCity"
+									value={cityResearched}
+									placeholder="ex: Roma"
+									onChange={(e) => setCityResearched(e.target.value)}
+								/>
+								<span>{message}</span>
+							</div>
+
+							<Button
+								className="searchButton"
+								type="button"
+								onClick={getCoordinate}
+							>
+								Cerca
+							</Button>
+						</div>
+						<div>
+							<label htmlFor="lang">Lingua:</label>
+							<select name="lang" id="lang">
+								<option value="italian">Italian</option>
+								<option value="english">English</option>
+							</select>
+						</div>
+
+						<div>darkmode</div>
+					</form>
+				</nav>
+			) : (
+				""
+			)}
+
+			<div onClick={handleShow}>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					fill="currentColor"
+					className="bi bi-list"
+					viewBox="0 0 16 16"
+				>
+					<path
+						fillRule="evenodd"
+						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
 					/>
-					<span>{messagge}</span>
-				</div>
-
-				<Button type="button" onClick={getCoordinate}>
-					Cerca
-				</Button>
+				</svg>
 			</div>
-			<div>
-				<label htmlFor="cars">Lingua:</label>
-				<select name="lang" id="lang">
-					<option value="italian">Italian</option>
-					<option value="english">English</option>
-				</select>
-			</div>
-
-			<div>darkmode</div>
-		</form>
+		</div>
 	);
 };
 
-export default NavbarComponet;
+export default NavbarComponent;

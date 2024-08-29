@@ -74,33 +74,83 @@ const CardComponent = () => {
 	const switcherWeatherCode = (code) => {
 		switch (code) {
 			case 0:
-				return <p>Sereno</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
+						<p>Sereno</p>
+					</div>
+				);
 			case 1:
-				return <p>Prevalentemente sereno</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						<p>Prevalentemente sereno</p>
+					</div>
+				);
 			case 2:
-				return <p>Parzialmente nuvoloso</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						<p>Parzialmente nuvoloso</p>
+					</div>
+				);
 			case 3:
-				return <p>Nuvoloso</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						<p>Nuvoloso</p>
+					</div>
+				);
 			case 45:
 			case 48:
-				return <p>Nebbia</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						<p>Nebbia</p>
+					</div>
+				);
 			case 51:
 			case 53:
 			case 55:
-				return <p>Pioggerella</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
+						<p>Pioggerella</p>
+					</div>
+				);
 			case 61:
 			case 63:
 			case 65:
-				return <p>Pioggia</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
+						<p>Pioggerella</p>
+					</div>
+				);
 			case 71:
 			case 73:
 			case 75:
-				return <p>Neve</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/71-75.png`} alt="sunny" />
+						<p>Neve</p>
+					</div>
+				);
 			case 95:
-				return <p>Temporale</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/95.png`} alt="sunny" />
+						<p>Temporale</p>
+					</div>
+				);
 			case 96:
 			case 99:
-				return <p>Temporale con grandine</p>;
+				return (
+					<div>
+						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
+						<p>Temporale con grandine</p>
+					</div>
+				);
 			default:
 				return <p>Previsione sconosciuta</p>;
 		}

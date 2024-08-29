@@ -1,11 +1,57 @@
-.navbar {
-	display: flex;
-	justify-content: space-around;
-}
 .researchCity {
 	display: flex;
 }
 .inputContainer {
 	display: flex;
 	flex-direction: column;
+}
+
+div svg {
+	margin-left: 80vw;
+	margin-top: 5%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.contanirForm {
+	position: absolute;
+	z-index: 2;
+	top: 15%;
+	right: 0px;
+	width: 50vw;
+	height: 80vh;
+	background-color: aqua;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: start;
+}
+
+form div {
+	margin-bottom: 20px;
+}
+input {
+	width: auto;
+}
+
+.searchButton {
+	height: 34px;
+	padding-top: 3px;
+}
+
+@media only screen and (max-width: 767px) {
+	.contanirForm {
+		position: absolute;
+		z-index: 2;
+		top: 9%;
+		right: 0px;
+		width: 100vw;
+		height: 80vh;
+		background-color: aqua;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+	}
 }
