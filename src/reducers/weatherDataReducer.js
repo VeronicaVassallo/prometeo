@@ -52,7 +52,6 @@ export const getCityName = createAsyncThunk(
 const weatherSlice = createSlice({
 	name: "weather",
 	initialState: {
-		temperature: null, //Temperatura corrente
 		temperatureList: [], //Lista di oggetti, tipo "dizionario" {time + temperature}
 		weatherCodeList: [], //Lista con i codici della previsione del tempo
 		windList: [],
@@ -88,25 +87,32 @@ const weatherSlice = createSlice({
 			})
 			.addCase(getWeatherData.fulfilled, (state, action) => {
 				state.status = "succeeded";
-				state.temperatureList = action.payload.hourly.time.map(
-					(time, index) => ({
-						time: time,
-						temperature: action.payload.hourly.temperature_2m[index],
+
+				state.temperatureList = action.payload.hourly.time.map((time, i) => ({
+					time: time,
+					temperature: action.payload.hourly.temperature_2m[i],
+				}));
+
+				state.weatherCodeList = action.payload.hourly.weather_code.map(
+					(code, i) => ({
+						time: action.payload.hourly.time[i],
+						weatherCode: code,
 					})
 				);
 
-				const now = new Date();
-				now.setMinutes(0, 0, 0); //azzero i minuti, cosi da arrotondate la data per difetto
-				const currentHour = now.toISOString().slice(0, 16); //ex: 12:32 --> 12:00 cosi mi considera che temperatura c'è in quell'ora
-				const currentItemList = state.temperatureList.find(
-					(item) => item.time === currentHour
+				state.windList = action.payload.hourly.wind_speed_10m.map(
+					(windValue, i) => ({
+						time: action.payload.hourly.time[i],
+						wind: windValue,
+					})
 				);
 
-				if (currentItemList) {
-					state.temperature = currentItemList.temperature;
-				} else {
-					console.log("Ora corrente non trovata");
-				}
+				state.humidityList = action.payload.hourly.relative_humidity_2m.map(
+					(humidityValue, index) => ({
+						time: action.payload.hourly.time[index],
+						humidity: humidityValue,
+					})
+				);
 			})
 			.addCase(getWeatherData.rejected, (state, action) => {
 				state.status = "failed";
