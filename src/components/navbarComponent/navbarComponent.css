@@ -2,3 +2,10 @@
 	display: flex;
 	justify-content: space-around;
 }
+.researchCity {
+	display: flex;
+}
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+}

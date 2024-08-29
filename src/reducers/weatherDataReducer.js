@@ -52,13 +52,14 @@ export const getCityName = createAsyncThunk(
 const weatherSlice = createSlice({
 	name: "weather",
 	initialState: {
-		temperatureList: [], //Lista di oggetti, tipo "dizionario" {time + temperature}
-		weatherCodeList: [], //Lista con i codici della previsione del tempo
+		//Liste di oggetti, tipo "dizionario" {time + temperature(weatherCode, humidity, etc..)}
+		temperatureList: [],
+		weatherCodeList: [],
 		windList: [],
 		humidityList: [],
 		city: "",
 		location: null,
-		status: "idle", // idle (stato iniziale), loading, succeeded, failed --> traccia lo stato della richiesta asincrona
+		status: "idle",
 		error: null,
 	},
 	reducers: {
@@ -108,8 +109,8 @@ const weatherSlice = createSlice({
 				);
 
 				state.humidityList = action.payload.hourly.relative_humidity_2m.map(
-					(humidityValue, index) => ({
-						time: action.payload.hourly.time[index],
+					(humidityValue, i) => ({
+						time: action.payload.hourly.time[i],
 						humidity: humidityValue,
 					})
 				);

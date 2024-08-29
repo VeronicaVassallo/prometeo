@@ -4,9 +4,13 @@ import "./navbarComponent.css";
 import { useDispatch } from "react-redux";
 import { getWeatherData, getCityName } from "../../reducers/weatherDataReducer";
 
+//bootstrap
+import Button from "react-bootstrap/Button";
+
 const NavbarComponet = () => {
 	const [cityResearched, setCityResearched] = useState("");
 	const [location, setLocation] = useState(null);
+	const [messagge, setMessage] = useState("");
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -33,34 +37,34 @@ const NavbarComponet = () => {
 					latitude: data[0].lat,
 					longitude: data[0].lon,
 				});
-				console.log(
-					"Coordinate sono, latitudine" +
-						data[0].lat +
-						" longitugine " +
-						data[0].lon
-				);
+				setMessage("");
 			} catch (error) {
+				setMessage("Inserire un nome di città esistente");
 				console.log("Error during getting Coordinates data from name", error);
 			}
 		} else {
-			alert("Inserire il nome di una città");
+			setMessage("Inserire una città");
 		}
 	};
 
 	return (
 		<form className="navbar">
-			<div>
+			<div className="researchCity">
 				<label htmlFor="researchCity"> Seleziona Città: </label>
-				<input
-					type="text"
-					id="researchCity"
-					name="researchCity"
-					value={cityResearched}
-					onChange={(e) => setCityResearched(e.target.value)}
-				/>
-				<button type="button" onClick={getCoordinate}>
+				<div className="inputContainer">
+					<input
+						type="text"
+						id="researchCity"
+						name="researchCity"
+						value={cityResearched}
+						onChange={(e) => setCityResearched(e.target.value)}
+					/>
+					<span>{messagge}</span>
+				</div>
+
+				<Button type="button" onClick={getCoordinate}>
 					Cerca
-				</button>
+				</Button>
 			</div>
 			<div>
 				<label htmlFor="cars">Lingua:</label>
