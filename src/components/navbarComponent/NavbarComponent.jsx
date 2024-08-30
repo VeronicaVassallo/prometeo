@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import "./navbarComponent.css";
 //redux
 import { useDispatch } from "react-redux";
@@ -57,49 +57,89 @@ const NavbarComponent = () => {
 	};
 
 	return (
-		<div className="d-flex">
-			{showNavbar ? (
-				<nav>
-					<form className="d-flex justify-content-around contanirForm">
-						<div className="researchCity">
-							<label htmlFor="researchCity"> Città </label>
-							<div className="inputContainer">
-								<input
-									className="mx-1"
-									type="text"
-									id="researchCity"
-									name="researchCity"
-									value={cityResearched}
-									placeholder="ex: Roma"
-									onChange={(e) => setCityResearched(e.target.value)}
-								/>
-								<span>{message}</span>
-							</div>
-
-							<Button
-								className="searchButton"
-								type="button"
-								onClick={getCoordinate}
-							>
-								Cerca
-							</Button>
-						</div>
-						<div>
-							<label htmlFor="lang">Lingua:</label>
-							<select name="lang" id="lang">
-								<option value="italian">Italian</option>
-								<option value="english">English</option>
-							</select>
+		<div>
+			{/* Navbar per schermi grandi*/}
+			<nav className="d-none d-lg-block">
+				<form className="d-flex justify-content-around contanirForm">
+					<div className="researchCity">
+						<label htmlFor="researchCity" className="pt-2">
+							Città
+						</label>
+						<div className="inputContainer">
+							<input
+								className="mx-1"
+								type="text"
+								id="researchCity"
+								name="researchCity"
+								value={cityResearched}
+								placeholder="ex: Roma"
+								onChange={(e) => setCityResearched(e.target.value)}
+							/>
+							<span className="text-danger">{message}</span>
 						</div>
 
-						<div>darkmode</div>
-					</form>
-				</nav>
-			) : (
-				""
-			)}
+						<Button
+							className="searchButton"
+							type="button"
+							onClick={getCoordinate}
+						>
+							Cerca
+						</Button>
+					</div>
+					<div>
+						<label htmlFor="lang">Lingua:</label>
+						<select name="lang" id="lang">
+							<option value="italian">Italian</option>
+							<option value="english">English</option>
+						</select>
+					</div>
 
-			<div onClick={handleShow}>
+					<div>darkmode</div>
+				</form>
+			</nav>
+
+			{/*Navbar mobile version */}
+			<nav className={`d-block d-lg-none ${showNavbar ? "d-block" : "d-none"}`}>
+				<form className="d-flex justify-content-around contanirForm">
+					<div className="researchCity">
+						<label htmlFor="researchCity" className="pt-2">
+							Città
+						</label>
+						<div className="inputContainer">
+							<input
+								className="mx-1"
+								type="text"
+								id="researchCity"
+								name="researchCity"
+								value={cityResearched}
+								placeholder="ex: Roma"
+								onChange={(e) => setCityResearched(e.target.value)}
+							/>
+							<span className="text-danger">{message}</span>
+						</div>
+
+						<Button
+							className="searchButton"
+							type="button"
+							onClick={getCoordinate}
+						>
+							Cerca
+						</Button>
+					</div>
+					<div>
+						<label htmlFor="lang">Lingua:</label>
+						<select name="lang" id="lang">
+							<option value="italian">Italian</option>
+							<option value="english">English</option>
+						</select>
+					</div>
+
+					<div>darkmode</div>
+				</form>
+			</nav>
+
+			{/* Menu toggle button */}
+			<div className="d-block d-lg-none" onClick={handleShow}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"

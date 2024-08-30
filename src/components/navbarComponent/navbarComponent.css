@@ -1,9 +1,11 @@
 .researchCity {
 	display: flex;
+	padding-top: 2%;
 }
 .inputContainer {
 	display: flex;
 	flex-direction: column;
+	padding-top: 1%;
 }
 
 div svg {
@@ -15,17 +17,10 @@ div svg {
 }
 
 .contanirForm {
-	position: absolute;
-	z-index: 2;
-	top: 15%;
-	right: 0px;
-	width: 50vw;
-	height: 80vh;
-	background-color: aqua;
+	width: 100vw;
 	display: flex;
-	flex-direction: column;
-	align-items: start;
-	justify-content: start;
+	align-items: center;
+	justify-content: space-around;
 }
 
 form div {
@@ -47,8 +42,8 @@ input {
 		top: 9%;
 		right: 0px;
 		width: 100vw;
+		background-color: white;
 		height: 80vh;
-		background-color: aqua;
 		display: flex;
 		flex-direction: column;
 		align-items: start;
