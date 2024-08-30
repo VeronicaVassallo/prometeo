@@ -43,6 +43,7 @@ input {
 		right: 0px;
 		width: 100vw;
 		background-color: white;
+		opacity: 0.9;
 		height: 80vh;
 		display: flex;
 		flex-direction: column;

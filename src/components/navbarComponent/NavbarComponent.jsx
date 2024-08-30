@@ -40,6 +40,7 @@ const NavbarComponent = () => {
 						longitude: data[0].lon,
 					});
 					setMessage("");
+					setShowNavbar(false);
 				} else {
 					setMessage("Inserire un nome di città esistente");
 				}

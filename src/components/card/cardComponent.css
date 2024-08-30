@@ -1,0 +1,46 @@
+.card-weather {
+	/*border: solid gray 3px;*/
+	width: 80vw;
+	margin: 2% auto;
+	height: 80vh;
+	border-radius: 15px;
+	background-color: aqua;
+	opacity: 0.9;
+}
+
+#headCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5%;
+}
+#headCard h3 {
+	margin-bottom: 0px;
+}
+#headCard h3 + p {
+	transform: translateY(-15px);
+}
+.svg {
+	width: 18pt;
+	padding-bottom: 18px;
+}
+
+#weather {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#weather img {
+	width: 80%;
+}
+#temperature {
+	position: absolute;
+	top: 55vh;
+	right: 24vw;
+	font-size: 65pt;
+}
+
+.title-under-temperature {
+	margin-top: 35%;
+	font-size: 22pt;
+}
