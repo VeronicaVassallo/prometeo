@@ -1,0 +1,21 @@
+ 
+Descrizione del progetto:
+L'obiettivo di questo progetto è quello di sviluppare un'app react per la visualizzazione delle informazioni meteo di una data città, 
+utilizzando la geolocalizzazione del dispositivo o la scelta manuale della località. Sarà possibile impostare la lingua 
+dell'applicazione e di conseguenza visualizzare tutte le informazioni meteo in quella lingua.
+ 
+Funzionalità dell'app:
+·        Geolocalizzazione automatica: l'app utilizzerà la geolocalizzazione del dispositivo per identificare la posizione dell'utente 
+         e mostrare le informazioni meteo relative a quella zona.
+·        Ricerca manuale: l'utente avrà la possibilità di cercare una città specifica nella barra di ricerca dell'app e visualizzare 
+         le informazioni meteo di quella località.
+·        Impostazione della lingua dell'applicazione: l'utente potrà impostare la lingua dell'applicazione in modo da visualizzare tutte
+         le informazioni meteo in quella lingua.
+·        Informazioni meteo complete: l'app utilizzerà un servizio API gratuito per ottenere le informazioni meteo aggiornate e 
+         visualizzarle all'utente. Sarà possibile visualizzare la temperatura attuale, le previsioni a breve termine, l'umidità, il 
+         vento e altro ancora.
+·        Grafici meteorologici: l'utente potrà visualizzare anche i grafici meteorologici per la temperatura, i venti e l'umidità per 
+         avere una migliore comprensione delle tendenze meteorologiche future.
+·        Aggiornamenti automatici: i dati meteorologici saranno aggiornati automaticamente con un intervallo di tempo prestabilito (30 
+         minuti) per mantenere le informazioni sempre aggiornate.
+·        Modalità Dark Mode – Prevedere un tema chiaro e scuro che possa variare in base alle impostazioni dell’utente

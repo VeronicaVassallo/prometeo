@@ -58,7 +58,7 @@ const NavbarComponent = () => {
 	};
 
 	return (
-		<div>
+		<div className="containerNavbar">
 			{/* Navbar per schermi grandi*/}
 			<nav className="d-none d-lg-block">
 				<form className="d-flex justify-content-around contanirForm">
@@ -101,8 +101,8 @@ const NavbarComponent = () => {
 
 			{/*Navbar mobile version */}
 			<nav className={`d-block d-lg-none ${showNavbar ? "d-block" : "d-none"}`}>
-				<form className="d-flex justify-content-around contanirForm">
-					<div className="researchCity">
+				<form className="d-flex contanirForm">
+					<div className="researchCity ms-2">
 						<label htmlFor="researchCity" className="pt-2">
 							Città
 						</label>
@@ -127,7 +127,7 @@ const NavbarComponent = () => {
 							Cerca
 						</Button>
 					</div>
-					<div>
+					<div className="ms-2">
 						<label htmlFor="lang">Lingua:</label>
 						<select name="lang" id="lang">
 							<option value="italian">Italian</option>
@@ -135,7 +135,11 @@ const NavbarComponent = () => {
 						</select>
 					</div>
 
-					<div>darkmode</div>
+					<div className="ms-2">
+						<label htmlFor="darkmode">darkmode </label>
+						<input type="radio" name="darkmode" />
+						
+					</div>
 				</form>
 			</nav>
 

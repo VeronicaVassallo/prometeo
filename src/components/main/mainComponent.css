@@ -1,0 +1,10 @@
+#mainComponent div{
+    background-color: rgb(249, 189, 79);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 0;
+    top: 50vh;
+    border-radius: 40px 40px 0px 0px;
+      
+}

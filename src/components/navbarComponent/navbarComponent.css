@@ -1,3 +1,7 @@
+.containerNavbar{
+	position: relative;
+	z-index: 4;
+}
 .researchCity {
 	display: flex;
 	padding-top: 2%;
@@ -17,6 +21,7 @@ div svg {
 }
 
 .contanirForm {
+	margin-top: 15%;
 	width: 100vw;
 	display: flex;
 	align-items: center;
@@ -38,13 +43,12 @@ input {
 @media only screen and (max-width: 767px) {
 	.contanirForm {
 		position: absolute;
-		z-index: 2;
+		z-index: 4;
 		top: 9%;
 		right: 0px;
 		width: 100vw;
+		height: 100vh;
 		background-color: white;
-		opacity: 0.9;
-		height: 80vh;
 		display: flex;
 		flex-direction: column;
 		align-items: start;

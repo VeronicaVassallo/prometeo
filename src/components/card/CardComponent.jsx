@@ -78,37 +78,72 @@ const CardComponent = () => {
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
-						<h2 className="text-center title-under-temperature">Sereno</h2>
+						{temperature ? (
+							<div id="temperature">
+								<p>{temperature}°</p>
+							</div>
+							) : (
+									<p>Not found</p>
+								)}
+						<p>Sereno</p>
 					</div>
 				);
 			case 1:
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
-						<h2 className="text-center title-under-temperature">
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
+						<p>
 							Prevalentemente sereno
-						</h2>
+						</p>
 					</div>
 				);
 			case 2:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Parzialmente nuvoloso</p>
 					</div>
 				);
 			case 3:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Nuvoloso</p>
 					</div>
 				);
 			case 45:
 			case 48:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Nebbia</p>
 					</div>
 				);
@@ -116,8 +151,15 @@ const CardComponent = () => {
 			case 53:
 			case 55:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Pioggerella</p>
 					</div>
 				);
@@ -125,8 +167,15 @@ const CardComponent = () => {
 			case 63:
 			case 65:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Pioggerella</p>
 					</div>
 				);
@@ -134,23 +183,44 @@ const CardComponent = () => {
 			case 73:
 			case 75:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/71-75.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Neve</p>
 					</div>
 				);
 			case 95:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/95.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Temporale</p>
 					</div>
 				);
 			case 96:
 			case 99:
 				return (
-					<div>
+					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
+						{temperature ? (
+								<div id="temperature">
+									<p>{temperature}°</p>
+								</div>
+								) : (
+										<p>Not found</p>
+						)}
 						<p>Temporale con grandine</p>
 					</div>
 				);
@@ -180,13 +250,6 @@ const CardComponent = () => {
 			</div>
 			<div>{weatherCode !== null ? switcherWeatherCode(weatherCode) : ""}</div>
 
-			{temperature ? (
-				<div id="temperature">
-					<p>{temperature}°</p>
-				</div>
-			) : (
-				<p>Not found</p>
-			)}
 			{/*humidity ? (
 				<div>
 					<p>Umidità: {humidity}%</p>
@@ -196,7 +259,7 @@ const CardComponent = () => {
 			)*/}
 			{wind ? (
 				<div>
-					<p className="text-center">Vento: {wind}km/h</p>
+					<p className="text-center">Vento: {wind} km/h</p>
 				</div>
 			) : (
 				<p>Not found</p>
