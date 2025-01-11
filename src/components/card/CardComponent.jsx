@@ -272,7 +272,7 @@ const CardComponent = () => {
 
 			{/*humidity ? (
 				<div>
-					<p>Umidità: {humidity}%</p>
+					<p>Umidità: {humidity}%</p>//
 				</div>
 			) : (
 				<p>Not found</p>
