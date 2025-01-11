@@ -4,13 +4,14 @@
 /*Contenitore Carta meteo di tutto*/
 .card-weather {
 	width: 80vw;
-	margin: 8% auto;
-	height: 72vh;
+	margin: auto;
+	padding-top: 18%;
+	height: 88vh;
 	border-radius: 15px;
 	background-color: rgb(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 3;
-	/*border: solid brown 2px;*/
+	/*border: solid rgb(48, 42, 165) 2px;*/
 	backdrop-filter: blur(20px); /*sfoca*/
 }
 /*---------------------------------*/
@@ -65,4 +66,10 @@
 	/*border: solid purple 2px;*/
 }
 
+/*Animation Scrolling*/
+.animationScrolling{
+	background-color: pink;
+	/*TODO: Continua con l'animazione corretta, il background rosa è solo una prova. Fixa l'animazione allo scroll della pagina. 
+	Gli elementi si devono posizionare come nel mockup*/
+}
 

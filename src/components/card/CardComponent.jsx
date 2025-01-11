@@ -25,6 +25,8 @@ const CardComponent = () => {
 	const [humidity, setHumidiy] = useState(null);
 	const [wind, setWind] = useState(null);
 	const [DayDate, setDayDate] = useState(null);
+	//animation during scrolling page
+	const [isScrolling, setisScrolling] = useState(false);
 
 
 
@@ -89,6 +91,22 @@ const CardComponent = () => {
 			setHumidiy(currentHumidityInfo.humidity);
 		}
 	}, [currentHumidityInfo]);
+
+	//animation scrolling logic
+	useEffect(() => {
+		const handleScroll = () => {
+		  // Attiva l'animazione al primo scroll
+		  if (!isScrolling) {
+			setisScrolling(true);
+		  }
+		};
+	
+		// Ascolta lo scroll
+		window.addEventListener("scroll", handleScroll);
+	
+		// Cleanup
+		return () => window.removeEventListener("scroll", handleScroll);
+	  }, [isScrolling]);
 
 	const switcherWeatherCode = (code) => {
 		switch (code) {
@@ -251,7 +269,7 @@ const CardComponent = () => {
 
 	return (
 		<div className="card-weather">
-			<div id="headCard">
+			<div id="headCard" className={isScrolling ? "animationScrolling" : ""}>
 				<h3>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +290,7 @@ const CardComponent = () => {
 
 			{/*humidity ? (
 				<div>
-					<p>Umidità: {humidity}%</p>//
+					<p>Umidità: {humidity}%</p>
 				</div>
 			) : (
 				<p>Not found</p>

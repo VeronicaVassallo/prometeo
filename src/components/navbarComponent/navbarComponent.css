@@ -1,6 +1,8 @@
 .containerNavbar{
-	position: relative;
+	position: fixed;
+	right: 5%;
 	z-index: 4;
+	background-color: white;
 }
 .researchCity {
 	display: flex;
