@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./cardComponent.css";
-//redux
+//redux/
 import { useDispatch, useSelector } from "react-redux";
 import {
 	getWeatherData,
@@ -24,6 +24,9 @@ const CardComponent = () => {
 	const [weatherCode, setWeatherCode] = useState(null);
 	const [humidity, setHumidiy] = useState(null);
 	const [wind, setWind] = useState(null);
+	const [DayDate, setDayDate] = useState(null);
+
+
 
 	useEffect(() => {
 		dispatch(getUserLocation());
@@ -59,6 +62,21 @@ const CardComponent = () => {
 
 	//Vento corrente
 	const currentWindInfo = useGetCurrentInfo(windList);
+
+	//data corrente
+	const getDate = () => {
+		const date = new Date();
+		const options = { weekday: 'short', day: 'numeric', month: 'long' };
+		const formattedDate = date.toLocaleDateString('it-IT', options);
+        setDayDate(formattedDate);
+
+	}
+	useState(() => {
+			getDate()
+		}, 
+		[]
+	)
+
 
 	useEffect(() => {
 		if (currentWindInfo) {
@@ -229,6 +247,8 @@ const CardComponent = () => {
 		}
 	};
 
+
+
 	return (
 		<div className="card-weather">
 			<div id="headCard">
@@ -246,7 +266,7 @@ const CardComponent = () => {
 					</svg>
 					{city}
 				</h3>
-				<p className="text-center">Mon 20 March</p>
+				<p className="text-center">{DayDate}</p>
 			</div>
 			<div>{weatherCode !== null ? switcherWeatherCode(weatherCode) : ""}</div>
 
