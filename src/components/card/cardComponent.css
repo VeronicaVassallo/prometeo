@@ -26,10 +26,10 @@
 #headCard h3 {
 	margin-bottom: 0px;
 }
-/*data*/
-#headCard h3 + p {
+/*data
+#headCard h3 + span {
 	transform: translateY(-15px);
-}
+}*/
 
 /*simbolo posizione citta*/
 .svg {
@@ -40,6 +40,7 @@
 
 /*Contenitore img sole + temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
 #weather {
+	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -67,9 +68,17 @@
 }
 
 /*Animation Scrolling*/
-.animationScrolling{
-	background-color: pink;
-	/*TODO: Continua con l'animazione corretta, il background rosa è solo una prova. Fixa l'animazione allo scroll della pagina. 
-	Gli elementi si devono posizionare come nel mockup*/
+#animationScrolling{
+	background-color: white;
+	position: sticky;
+	top: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between
+	/*TODO:FIX l'animazione del luogo e della data, allo scroll devono posizionarsi verso l'alto
+	, all'altezza della della navbar
+	*/     
 }
+
 

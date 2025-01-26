@@ -26,7 +26,8 @@ const CardComponent = () => {
 	const [wind, setWind] = useState(null);
 	const [DayDate, setDayDate] = useState(null);
 	//animation during scrolling page
-	const [isScrolling, setisScrolling] = useState(false);
+	const [isScrolling, setIsScrolling] = useState(false);
+	const [scrollY, setScrollY] = useState(0);
 
 
 
@@ -94,19 +95,32 @@ const CardComponent = () => {
 
 	//animation scrolling logic
 	useEffect(() => {
+		let isScrollingActive = false;
+	
 		const handleScroll = () => {
-		  // Attiva l'animazione al primo scroll
-		  if (!isScrolling) {
-			setisScrolling(true);
+		  // Attiva lo stato solo quando non è già attivo
+		  if (!isScrollingActive) {
+			setIsScrolling(true);
+			isScrollingActive = true;
 		  }
+	
+		  // Disattiva lo stato se non ci sono movimenti entro un breve lasso di tempo
+		  window.clearTimeout(window.scrollTimeout);
+		  window.scrollTimeout = setTimeout(() => {
+			setIsScrolling(false);
+			isScrollingActive = false;
+		  }, 200); // Modifica il tempo se necessario
 		};
 	
-		// Ascolta lo scroll
+		// Aggiungi l'event listener
 		window.addEventListener("scroll", handleScroll);
 	
 		// Cleanup
-		return () => window.removeEventListener("scroll", handleScroll);
-	  }, [isScrolling]);
+		return () => {
+		  window.removeEventListener("scroll", handleScroll);
+		  window.clearTimeout(window.scrollTimeout);
+		};
+	  }, []);
 
 	const switcherWeatherCode = (code) => {
 		switch (code) {
@@ -269,7 +283,7 @@ const CardComponent = () => {
 
 	return (
 		<div className="card-weather">
-			<div id="headCard" className={isScrolling ? "animationScrolling" : ""}>
+			<div id={isScrolling ? "animationScrolling" : "headCard"}>
 				<h3>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -284,7 +298,7 @@ const CardComponent = () => {
 					</svg>
 					{city}
 				</h3>
-				<p className="text-center">{DayDate}</p>
+				<span className="text-center">{DayDate}</span>
 			</div>
 			<div>{weatherCode !== null ? switcherWeatherCode(weatherCode) : ""}</div>
 
