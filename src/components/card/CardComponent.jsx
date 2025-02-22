@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./cardComponent.css";
 //redux/
 import { useDispatch, useSelector } from "react-redux";
@@ -26,8 +26,10 @@ const CardComponent = () => {
 	const [wind, setWind] = useState(null);
 	const [DayDate, setDayDate] = useState(null);
 	//animation during scrolling page
-	const [isScrolling, setIsScrolling] = useState(false);
-	const [scrollY, setScrollY] = useState(0);
+	const [isScrollingDown, setIsScrollingDown] = useState(false);
+    const cardRef = useRef(null);
+    const lastScrollY = useRef(0); // Per memorizzare la posizione precedente
+	
 
 
 
@@ -94,33 +96,28 @@ const CardComponent = () => {
 	}, [currentHumidityInfo]);
 
 	//animation scrolling logic
-	useEffect(() => {
-		let isScrollingActive = false;
-	
+
+    useEffect(() => {
 		const handleScroll = () => {
-		  // Attiva lo stato solo quando non è già attivo
-		  if (!isScrollingActive) {
-			setIsScrolling(true);
-			isScrollingActive = true;
-		  }
+			const currentScroll = window.scrollY; // Legge la posizione dello scroll globale
 	
-		  // Disattiva lo stato se non ci sono movimenti entro un breve lasso di tempo
-		  window.clearTimeout(window.scrollTimeout);
-		  window.scrollTimeout = setTimeout(() => {
-			setIsScrolling(false);
-			isScrollingActive = false;
-		  }, 200); // Modifica il tempo se necessario
+			if (currentScroll > lastScrollY.current) {
+				// Scroll verso il basso
+				setIsScrollingDown(true);
+			} else {
+				// Scroll verso l'alto
+				setIsScrollingDown(false);
+			}
+	
+			lastScrollY.current = currentScroll;
 		};
 	
-		// Aggiungi l'event listener
 		window.addEventListener("scroll", handleScroll);
 	
-		// Cleanup
 		return () => {
-		  window.removeEventListener("scroll", handleScroll);
-		  window.clearTimeout(window.scrollTimeout);
+			window.removeEventListener("scroll", handleScroll);
 		};
-	  }, []);
+	}, []);
 
 	const switcherWeatherCode = (code) => {
 		switch (code) {
@@ -283,7 +280,8 @@ const CardComponent = () => {
 
 	return (
 		<div className="card-weather">
-			<div id={isScrolling ? "animationScrolling" : "headCard"}>
+			
+			<div  ref={cardRef} id={isScrollingDown ? "animationScrolling" : "headCard"}>
 				<h3>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

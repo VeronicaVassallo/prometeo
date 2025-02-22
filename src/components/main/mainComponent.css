@@ -1,5 +1,4 @@
 #mainComponent div{
-    background-color: rgb(249, 189, 79);
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -7,3 +6,18 @@
     top: 53vh;
     border-radius: 40px 40px 0px 0px;   
 }
+#mainComponent.sunny div{
+   background-color: var(--sunny);
+}
+
+#mainComponent.rainy div{
+    background-color: var(--rainy);
+ }
+
+ #mainComponent.cloudy div{
+    background-color: var(--cloudy);
+ }
+
+ #mainComponent.night div{
+    background-color: var(--night);
+ }
