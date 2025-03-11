@@ -29,6 +29,9 @@ const CardComponent = () => {
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
     const cardRef = useRef(null);
     const lastScrollY = useRef(0); // Per memorizzare la posizione precedente
+
+	//Bkcolor
+	let BKColor = "sunny";
 	
 
 
@@ -119,9 +122,16 @@ const CardComponent = () => {
 		};
 	}, []);
 
+	//metodo per aggiornare il valore di BKColor in base all'ora del giorno e delle previsioni meteo
+	//TODO: una volta aggiornata la variabile BKcolor devo salire di componente e passare l'informazione a MainComponebt
+	const setBKColor = (value) => {
+		BKColor = value;
+	}
+
 	const switcherWeatherCode = (code) => {
 		switch (code) {
 			case 0:
+				setBKColor("sunny");
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
@@ -136,6 +146,7 @@ const CardComponent = () => {
 					</div>
 				);
 			case 1:
+				setBKColor("sunny");
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
