@@ -32,6 +32,9 @@ const CardComponent = () => {
 
 	//Bkcolor
 	let BKColor = "sunny";
+	const listBKColr = ["sunny", "rainy", "cloudy", "night"];
+
+
 	
 
 
@@ -131,7 +134,7 @@ const CardComponent = () => {
 	const switcherWeatherCode = (code) => {
 		switch (code) {
 			case 0:
-				setBKColor("sunny");
+				setBKColor(listBKColr[0]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
@@ -146,7 +149,7 @@ const CardComponent = () => {
 					</div>
 				);
 			case 1:
-				setBKColor("sunny");
+				setBKColor(listBKColr[0]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -163,6 +166,7 @@ const CardComponent = () => {
 					</div>
 				);
 			case 2:
+				setBKColor(listBKColr[2]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -177,6 +181,7 @@ const CardComponent = () => {
 					</div>
 				);
 			case 3:
+				setBKColor(listBKColr[2]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -192,6 +197,7 @@ const CardComponent = () => {
 				);
 			case 45:
 			case 48:
+				setBKColor(listBKColr[2]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -208,6 +214,7 @@ const CardComponent = () => {
 			case 51:
 			case 53:
 			case 55:
+				setBKColor(listBKColr[1]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
@@ -224,6 +231,7 @@ const CardComponent = () => {
 			case 61:
 			case 63:
 			case 65:
+				setBKColor(listBKColr[1]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
@@ -240,6 +248,7 @@ const CardComponent = () => {
 			case 71:
 			case 73:
 			case 75:
+				setBKColor(listBKColr[1]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/71-75.png`} alt="sunny" />
@@ -254,6 +263,7 @@ const CardComponent = () => {
 					</div>
 				);
 			case 95:
+				setBKColor(listBKColr[1]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/95.png`} alt="sunny" />
@@ -269,6 +279,7 @@ const CardComponent = () => {
 				);
 			case 96:
 			case 99:
+				setBKColor(listBKColr[1]);
 				return (
 					<div id="weather">
 						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
