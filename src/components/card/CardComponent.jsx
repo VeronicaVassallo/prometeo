@@ -111,7 +111,7 @@ const CardComponent = ({setBKColor}) => {
 				// Scroll verso il basso
 				setIsScrollingDown(true);
 			} else {
-				// Scroll verso l'alto
+				//Scroll verso l'alto
 				setIsScrollingDown(false);
 			}
 	
@@ -130,10 +130,10 @@ const CardComponent = ({setBKColor}) => {
 			case 0:
 				setBKColor(listBKColr[0]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
 						{temperature ? (
-							<div id="temperature">
+							<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 								<p>{temperature}°</p>
 							</div>
 							) : (
@@ -145,10 +145,10 @@ const CardComponent = ({setBKColor}) => {
 			case 1:
 				setBKColor(listBKColr[0]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -162,10 +162,10 @@ const CardComponent = ({setBKColor}) => {
 			case 2:
 				setBKColor(listBKColr[2]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -177,10 +177,10 @@ const CardComponent = ({setBKColor}) => {
 			case 3:
 				setBKColor(listBKColr[2]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -193,10 +193,10 @@ const CardComponent = ({setBKColor}) => {
 			case 48:
 				setBKColor(listBKColr[2]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -210,10 +210,10 @@ const CardComponent = ({setBKColor}) => {
 			case 55:
 				setBKColor(listBKColr[1]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -227,10 +227,10 @@ const CardComponent = ({setBKColor}) => {
 			case 65:
 				setBKColor(listBKColr[1]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -244,10 +244,10 @@ const CardComponent = ({setBKColor}) => {
 			case 75:
 				setBKColor(listBKColr[1]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/71-75.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -259,10 +259,10 @@ const CardComponent = ({setBKColor}) => {
 			case 95:
 				setBKColor(listBKColr[1]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/95.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -275,10 +275,10 @@ const CardComponent = ({setBKColor}) => {
 			case 99:
 				setBKColor(listBKColr[1]);
 				return (
-					<div id="weather">
+					<div  className={isScrollingDown ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
 						{temperature ? (
-								<div id="temperature">
+								<div id={isScrollingDown ? "temperatureScrolling" : "temperature"}>
 									<p>{temperature}°</p>
 								</div>
 								) : (
@@ -295,7 +295,7 @@ const CardComponent = ({setBKColor}) => {
 
 
 	return (
-		<div className="card-weather">
+		<div className={isScrollingDown ? "card-weather-scrolling" : "card-weather"}>
 			
 			<div  ref={cardRef} id={isScrollingDown ? "animationScrolling" : "headCard"}>
 				<h3>
@@ -312,10 +312,9 @@ const CardComponent = ({setBKColor}) => {
 					</svg>
 					{city}
 				</h3>
-				<span className="text-center">{DayDate}</span>
+				<span  className={isScrollingDown ? "ms-4 pb-2" : "text-center"}>{DayDate}</span>
 			</div>
 			<div>{weatherCode !== null ? switcherWeatherCode(weatherCode) : ""}</div>
-
 			{/*humidity ? (
 				<div>
 					<p>Umidità: {humidity}%</p>

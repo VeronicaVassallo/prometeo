@@ -11,9 +11,25 @@
 	background-color: rgb(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 3;
-	/*border: solid rgb(48, 42, 165) 2px;*/
+	border: solid rgb(48, 42, 165) 2px;
 	backdrop-filter: blur(20px); /*sfoca*/
 }
+
+.card-weather-scrolling{
+	width: 80vw;
+	margin: auto;
+	padding-top: 1%;
+	height: 88vh;
+	border-radius: 15px;
+	background-color: rgb(255, 255, 255, 0.5);
+	position: relative;
+	top: 6em;
+	z-index: 3;
+	backdrop-filter: blur(20px); /*sfoca*/
+	border: solid rgb(48, 42, 165) 2px;
+}
+
+
 /*---------------------------------*/
 /*contenitore nome città + data*/
 #headCard {
@@ -39,12 +55,21 @@
 /*---------------------------------*/
 
 /*Contenitore img sole + temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
-#weather {
+.weather {
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/*border: solid red 2px;*/
+	border: solid red 2px;
+}
+
+.weather-scrolling {
+	margin-top: 0px;
+	margin-left: 12%;
+	position: fixed;
+	width: 80vw;
+	height: 40vh;
+	top: 20em;
 }
 /*temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
 #weather > p, #weather p{
@@ -66,6 +91,11 @@
 	font-size: 65pt;
 	/*border: solid purple 2px;*/
 }
+#temperatureScrolling {
+	font-size: 23pt;
+	font-weight: 600;
+
+}
 
 /*Animation Scrolling*/
 #animationScrolling{
@@ -75,10 +105,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between
-	/*TODO:FIX l'animazione del luogo e della data, allo scroll devono posizionarsi verso l'alto
-	, all'altezza della della navbar
-	*/     
+	justify-content: start;	   
 }
 
 
