@@ -9,7 +9,7 @@ import {
 } from "../../reducers/weatherDataReducer";
 import { useGetCurrentInfo } from "../../hooks/useGetCurrentInfo";
 
-const CardComponent = () => {
+const CardComponent = ({setBKColor}) => {
 	const dispatch = useDispatch();
 	const weather = useSelector((state) => state.weather);
 	const {
@@ -31,7 +31,7 @@ const CardComponent = () => {
     const lastScrollY = useRef(0); // Per memorizzare la posizione precedente
 
 	//Bkcolor
-	let BKColor = "sunny";
+	//let BKColor = "sunny";
 	const listBKColr = ["sunny", "rainy", "cloudy", "night"];
 
 
@@ -124,12 +124,6 @@ const CardComponent = () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
-
-	//metodo per aggiornare il valore di BKColor in base all'ora del giorno e delle previsioni meteo
-	//TODO: una volta aggiornata la variabile BKcolor devo salire di componente e passare l'informazione a MainComponebt
-	const setBKColor = (value) => {
-		BKColor = value;
-	}
 
 	const switcherWeatherCode = (code) => {
 		switch (code) {
