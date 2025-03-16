@@ -105,7 +105,7 @@ const CardComponent = ({setBKColor}) => {
 
     useEffect(() => {
 		const handleScroll = () => {
-			const currentScroll = window.scrollY; // Legge la posizione dello scroll globale
+			const currentScroll = window.scrollY; //Legge la posizione dello scroll globale
 	
 			if (currentScroll > lastScrollY.current) {
 				// Scroll verso il basso
