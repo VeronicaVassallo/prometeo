@@ -65,12 +65,16 @@
 }
 
 .weather-scrolling {
-	margin-top: 0px;
-	margin-left: 12%;
+	margin-top: 1em;
 	position: fixed;
-	width: 80vw;
-	height: 40vh;
-	top: 20em;
+	width: 50vw;
+	height: 20vh;
+	top: 2em;
+}
+
+.weather-scrolling img{
+	margin-left: 40%;
+	height: 8em;
 }
 /*temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
 #weather > p, #weather p{
@@ -107,6 +111,10 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: start;	   
+}
+
+.c-humidity-wind{
+	padding: 45% 0%;
 }
 
 
