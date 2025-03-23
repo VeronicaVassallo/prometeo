@@ -6,17 +6,22 @@ import NavbarComponet from "./components/navbarComponent/NavbarComponent";
 
 function App() {
 const [BKC,setBKC] = useState("sunny");
+const [isScrollingDown, setIsScrollingDown] = useState(false);
 
 const handleSetBKColor = (value) => {
 	setBKC(value);
+}
+
+const handleSetIsScrolling = (value) =>{
+	setIsScrollingDown(value);
 }
 
 
 	return (
 		<>
 			<NavbarComponet/>
-			<CardComponent setBKColor={handleSetBKColor}/>	
-			<MainComponent bkColor={BKC}/>
+			<CardComponent setBKColor={handleSetBKColor} handleScrolling={handleSetIsScrolling} isScrolling={isScrollingDown}/>	
+			<MainComponent bkColor={BKC} isScrolling={isScrollingDown}/>
 		</>	
 	) 
 }

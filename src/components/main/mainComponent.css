@@ -6,6 +6,11 @@
     top: 53vh;
     border-radius: 40px 40px 0px 0px;   
 }
+.isScrolling div{
+   height: 70vh !important;
+   top: 80vh;
+}
+
 #mainComponent.sunny div{
    background-color: var(--sunny);
 }

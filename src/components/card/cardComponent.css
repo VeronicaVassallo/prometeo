@@ -99,7 +99,12 @@
 #temperatureScrolling {
 	font-size: 23pt;
 	font-weight: 600;
+	padding-left: 13%;
+}
 
+#temperatureScrolling + p{
+	padding-left: 13%;
+	transform: translateY(-21%);
 }
 
 /*Animation Scrolling*/
