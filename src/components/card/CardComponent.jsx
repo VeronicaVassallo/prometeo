@@ -315,20 +315,22 @@ const CardComponent = ({setBKColor}) => {
 				<span  className={isScrollingDown ? "ms-4 pb-2" : "text-center"}>{DayDate}</span>
 			</div>
 			<div>{weatherCode !== null ? switcherWeatherCode(weatherCode) : ""}</div>
-			{/*humidity ? (
-				<div>
-					<p>Umidità: {humidity}%</p>
-				</div>
-			) : (
-				<p>Not found</p>
-			)*/}
-			{wind ? (
-				<div>
-					<p className="text-center">Vento: {wind} km/h</p>
-				</div>
-			) : (
-				<p>Not found</p>
-			)}
+			<div className={isScrollingDown ? "d-flex  justify-content-end" : "text-center"}>
+				{humidity ? (
+					<div>
+						<p className={isScrollingDown ? "mx-3" : "d-none"}>Umidità: {humidity}%</p>
+					</div>
+				) : (
+					<p>Not found</p>
+				)}
+				{wind ? (
+					<div>
+						<p className="text-center">Vento: {wind} km/h</p>
+					</div>
+				) : (
+					<p>Not found</p>
+				)}
+			</div>
 		</div>
 	);
 };
