@@ -3,6 +3,7 @@ import "./App.css";
 import CardComponent from "./components/card/CardComponent";
 import MainComponent from "./components/main/Main-component";
 import NavbarComponet from "./components/navbarComponent/NavbarComponent";
+import FistCarouselCard from "./components/firstCarouselCard/FirstCarouselCard";
 
 function App() {
 const [BKC,setBKC] = useState("sunny");
@@ -22,6 +23,7 @@ const handleSetIsScrolling = (value) =>{
 			<NavbarComponet/>
 			<CardComponent setBKColor={handleSetBKColor} handleScrolling={handleSetIsScrolling} isScrolling={isScrollingDown}/>	
 			<MainComponent bkColor={BKC} isScrolling={isScrollingDown}/>
+			<FistCarouselCard/>
 		</>	
 	) 
 }

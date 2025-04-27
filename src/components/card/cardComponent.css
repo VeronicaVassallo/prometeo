@@ -57,7 +57,6 @@
 
 /*Contenitore img sole + temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
 .weather {
-	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -97,14 +96,15 @@
 	/*border: solid purple 2px;*/
 }
 #temperatureScrolling {
-	font-size: 23pt;
+	font-size: 21pt;
 	font-weight: 600;
 	padding-left: 13%;
 }
 
 #temperatureScrolling + p{
 	padding-left: 13%;
-	transform: translateY(-21%);
+	transform: translateY(-48%);
+	width: 30%;
 }
 
 /*Animation Scrolling*/
