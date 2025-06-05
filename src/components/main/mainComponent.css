@@ -1,5 +1,5 @@
 #mainComponent div{
-    width: 100%;
+    width: 96%;
     height: 100vh;
     position: absolute;
     z-index: 0;
@@ -8,7 +8,7 @@
 }
 .isScrolling div{
    height: 70vh !important;
-   top: 80vh;
+   top: 83h;
 }
 
 #mainComponent.sunny div{

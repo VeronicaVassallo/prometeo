@@ -9,4 +9,4 @@ const FirstCarouselCard = () => {
 
 }
 
-export default FirstCarouselCard;
+export default FirstCarouselCard
