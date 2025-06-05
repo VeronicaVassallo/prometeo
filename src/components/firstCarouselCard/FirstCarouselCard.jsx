@@ -1,11 +1,12 @@
+import "./firstCarouselCard.css";
 
-
-const FistCarouselCard = () => {
+const FirstCarouselCard = () => {
     return(
-        <div>
-            <p>test</p>
+        <div id="firstCard">
+            <p>Card 1</p>
         </div>
     )
+
 }
 
-export default FistCarouselCard;
+export default FirstCarouselCard;
