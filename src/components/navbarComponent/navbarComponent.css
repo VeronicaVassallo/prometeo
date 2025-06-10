@@ -41,6 +41,13 @@ input {
 	padding-top: 3px;
 }
 
+/*When window is scrolling add or remove these class*/
+
+.isScrolling{
+	margin-top: 7%;
+}
+
+
 @media only screen and (max-width: 767px) {
 	.contanirForm {
 		position: absolute;
@@ -55,4 +62,5 @@ input {
 		align-items: start;
 		justify-content: start;
 	}
+	
 }

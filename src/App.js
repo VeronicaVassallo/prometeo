@@ -21,7 +21,7 @@ const handleSetIsScrolling = (value) =>{
 
 	return (
 		<>
-			<NavbarComponet/>
+			<NavbarComponet isScrolling={isScrollingDown}/>
 			<CardComponent setBKColor={handleSetBKColor} handleScrolling={handleSetIsScrolling} isScrolling={isScrollingDown}/>	
 			<MainComponent bkColor={BKC} isScrolling={isScrollingDown}/>
 			<CarouselCard/>

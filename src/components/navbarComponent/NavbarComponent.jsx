@@ -7,7 +7,7 @@ import { getWeatherData, getCityName } from "../../reducers/weatherDataReducer";
 //bootstrap
 import Button from "react-bootstrap/Button";
 
-const NavbarComponent = () => {
+const NavbarComponent = (isScrolling) => {
 	const [cityResearched, setCityResearched] = useState("");
 	const [location, setLocation] = useState(null);
 	const [message, setMessage] = useState("");
@@ -150,7 +150,7 @@ const NavbarComponent = () => {
 					width="16"
 					height="16"
 					fill="currentColor"
-					className="bi bi-list"
+					className={`${"bi bi-list"}${isScrolling ? "isScrolling" : ""}`}
 					viewBox="0 0 16 16"
 				>
 					<path

@@ -1,6 +1,6 @@
 .containerCarousel{
     position: relative;
-    top: 100vh;
+    top: 70vh;
     z-index: 100;
     color: red;
     border: solid blue 2px;
