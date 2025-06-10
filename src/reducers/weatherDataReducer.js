@@ -1,14 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios, {isCancel, AxiosError} from 'axios';
 
 export const getWeatherData = createAsyncThunk(
 	"weather/getWeatherData",
 	async (location) => {
-		const response = await fetch(
-			`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=celsius`
-		);
-		const data = await response.json();
-		console.log("DATI API METEO", data);
-		return data;
+		try {
+			const response = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=celsius`)
+			//const data = await response.json();
+			return response.data;
+		} catch (error) {
+			throw Error("Errore nel recupero dei dati meteo")
+		}
+
 	}
 );
 
