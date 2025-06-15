@@ -1,15 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios, {isCancel, AxiosError} from 'axios';
+import axios from 'axios';
 
 export const getWeatherData = createAsyncThunk(
 	"weather/getWeatherData",
 	async (location) => {
 		try {
 			const response = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=celsius`)
-			//const data = await response.json();
 			return response.data;
 		} catch (error) {
-			throw Error("Errore nel recupero dei dati meteo")
+			throw Error("Errore nel recupero dei dati meteo");
 		}
 
 	}
@@ -39,16 +38,21 @@ export const getUserLocation = createAsyncThunk(
 export const getCityName = createAsyncThunk(
 	"city/getCityName",
 	async (location) => {
-		const response = await fetch(
+		try {
+			 const response = await axios.get(
 			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${location.latitude}&lon=${location.longitude}&zoom=10`
-		);
-		const data = await response.json();
-		const cityName =
+			);
+			const data = response.data;
+			const cityName =
 			data.address.city ||
 			data.address.town ||
 			data.address.village ||
 			"Città non trovata";
-		return cityName;
+			return cityName;
+		} catch (error) {
+			throw Error("Errore nel recupero della città :", error.message)
+		}
+	
 	}
 );
 

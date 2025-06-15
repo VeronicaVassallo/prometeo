@@ -1,5 +1,6 @@
-#firstCarrd{
-    height: 700px;
-    width: 500px;
-    background-color: burlywood;
+#firstCard{
+    height: 80%;
+    width: 115%;
+    background-color: rgb(144, 135, 222);
+    margin: 0% 8% 0% 8%;
 }
