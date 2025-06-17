@@ -1,5 +1,8 @@
 #thirdCard{
     height: 80%;
-    width: 100%;    
-    background-color: rgb(135, 222, 167);
+    width: 90%;
+    background-color: rgb(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px); /*sfoca*/
+    border-radius: 5%;
+    margin: 0% 8% 0% 8%;
 }

@@ -11,7 +11,7 @@
 	background-color: rgb(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 3;
-	border: solid rgb(48, 42, 165) 2px;
+	/*border: solid rgb(48, 42, 165) 2px;*/
 	backdrop-filter: blur(20px); /*sfoca*/
 }
 
@@ -23,10 +23,10 @@
 	border-radius: 15px;
 	background-color: rgb(255, 255, 255, 0.5);
 	top: 1em;
-	left: 2em;
+	left: 2.5em;
 	z-index: 3;
 	backdrop-filter: blur(20px); /*sfoca*/
-	border: solid rgb(48, 42, 165) 2px;
+	/*border: solid rgb(48, 42, 165) 2px;*/
 	position: fixed;
 }
 

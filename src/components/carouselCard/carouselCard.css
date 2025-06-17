@@ -2,9 +2,9 @@
     position: relative;
     top: 68vh;
     z-index: 100;
-    border: solid blue 2px;
     width: 95vw;
     height: 50vh;
     display: flex;
     overflow: hidden;
 }
+

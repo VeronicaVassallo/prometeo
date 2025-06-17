@@ -7,20 +7,22 @@ import ThirdCarouselCard from "../thirdCarouselCard/ThirdCarouselCard";
 /*Swiper*/
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
 
 
-import { FreeMode } from 'swiper/modules';
+import { FreeMode, Pagination } from 'swiper/modules';
 
 const CarouselCard = () => {
     return(
         <div className="containerCarousel">
             <Swiper
-                spaceBetween={20}
-                slidesPerView={1} // Cambia in base alla larghezza desiderata
-                freeMode={true}
+                 spaceBetween={20}
+                slidesPerView={1}
                 grabCursor={true}
-                modules={[FreeMode]}
+                modules={[Pagination]}
+                pagination={{clickable: true, dynamicBullets: true,}}
+                className="mySwiper"
             >
                 <SwiperSlide>
                     <FirstCarouselCard />
