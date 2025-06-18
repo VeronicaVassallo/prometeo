@@ -6,6 +6,7 @@ export const getWeatherData = createAsyncThunk(
 	async (location) => {
 		try {
 			const response = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=celsius`)
+			console.log("dati meteo: ", response.data)
 			return response.data;
 		} catch (error) {
 			throw Error("Errore nel recupero dei dati meteo");
@@ -60,13 +61,15 @@ const weatherSlice = createSlice({
 	name: "weather",
 	initialState: {
 		//Liste di oggetti, tipo "dizionario" {time + temperature(weatherCode, humidity, etc..)}
+		//TODO: al momento qui mi prendo tutti i dati del meteo, devo mettere nella prima carta del carusello le informazioni 
+		// del meteo dei giorni successivi. Nella seconda Card i dati del meteo le previsoni della giornata. Nell'ultima carte altre info..
 		temperatureList: [],
 		weatherCodeList: [],
 		windList: [],
 		humidityList: [],
 		city: "",
 		location: null,
-		status: "idle",
+		status: "idle",//dall'inglese "inattivo", ossia lo stato iniziale prima che succeda qualcosa", in questo caso l'utilizzaimo per capire in che stato è la chiamata asinicrona
 		error: null,
 	},
 	reducers: {
@@ -99,6 +102,8 @@ const weatherSlice = createSlice({
 				state.temperatureList = action.payload.hourly.time.map((time, i) => ({
 					time: time,
 					temperature: action.payload.hourly.temperature_2m[i],
+					/*converte i dati dell'orario fornito dall'API da cosi "["2025-06-18T00:00","2025-06-18T01:00",...etc]" a
+					cosi [23.5, 22.1,...etc],*/
 				}));
 
 				state.weatherCodeList = action.payload.hourly.weather_code.map(
