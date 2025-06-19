@@ -14,7 +14,6 @@ const FirstCarouselCard = () => {
 		humidityList,
 		windList,
 	} = weather;
-    console.log("DATAAA: ", weather.weatherCodeList);
     const [filteredData, setFilteredData] = useState([]);
 
    useEffect(() => {
