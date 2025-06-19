@@ -1,8 +1,12 @@
 #firstCard{
     height: 80%;
     width: 90%;
-    background-color: rgb(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.726);
     backdrop-filter: blur(20px); /*sfoca*/
     border-radius: 5%;
     margin: 0% 8% 0% 8%;
+}
+					
+.weatherCard img{
+    width: 80%;
 }

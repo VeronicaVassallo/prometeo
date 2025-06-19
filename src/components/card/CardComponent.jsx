@@ -76,7 +76,7 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
         setDayDate(formattedDate);
 
 	}
-	useState(() => {
+	useEffect(() => {
 			getDate()
 		}, 
 		[]
@@ -122,7 +122,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 	const switcherWeatherCode = (code) => {
 		switch (code) {
 			case 0:
-				setBKColor(listBKColr[0]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
@@ -137,7 +136,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 					</div>
 				);
 			case 1:
-				setBKColor(listBKColr[0]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -154,7 +152,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 					</div>
 				);
 			case 2:
-				setBKColor(listBKColr[2]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -169,7 +166,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 					</div>
 				);
 			case 3:
-				setBKColor(listBKColr[2]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -185,7 +181,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 				);
 			case 45:
 			case 48:
-				setBKColor(listBKColr[2]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
@@ -202,7 +197,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 			case 51:
 			case 53:
 			case 55:
-				setBKColor(listBKColr[1]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
@@ -219,7 +213,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 			case 61:
 			case 63:
 			case 65:
-				setBKColor(listBKColr[1]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
@@ -236,7 +229,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 			case 71:
 			case 73:
 			case 75:
-				setBKColor(listBKColr[1]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/71-75.png`} alt="sunny" />
@@ -251,7 +243,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 					</div>
 				);
 			case 95:
-				setBKColor(listBKColr[1]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/95.png`} alt="sunny" />
@@ -267,7 +258,6 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 				);
 			case 96:
 			case 99:
-				setBKColor(listBKColr[1]);
 				return (
 					<div  className={isScrolling ? "weather-scrolling" : "weather"}>
 						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
@@ -285,6 +275,39 @@ const CardComponent = ({setBKColor, handleScrolling, isScrolling}) => {
 				return <p>Previsione sconosciuta</p>;
 		}
 	};
+
+	useEffect(() => {
+	if (weatherCode !== null) {
+		switch (weatherCode) {
+			case 0:
+			case 1:
+				setBKColor(listBKColr[0]);
+				break;
+			case 2:
+			case 3:
+			case 45:
+			case 48:
+				setBKColor(listBKColr[2]);
+				break;
+			case 51:
+			case 53:
+			case 55:
+			case 61:
+			case 63:
+			case 65:
+			case 71:
+			case 73:
+			case 75:
+			case 95:
+			case 96:
+			case 99:
+				setBKColor(listBKColr[1]);
+				break;
+			default:
+				break;
+		}
+	}
+}, [weatherCode]);
 
 
 
