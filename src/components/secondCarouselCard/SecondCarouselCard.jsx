@@ -16,7 +16,7 @@ const SecondCarouselCard = () => {
 		humidityList,
 		windList,
 	} = weather;
-    console.log("DATAAA: ", weather.weatherCodeList);
+    
 	const [filteredtemperatureList,setFilteredtemperatureList] = useState([]);
 
 	const swiper = useSwiper();

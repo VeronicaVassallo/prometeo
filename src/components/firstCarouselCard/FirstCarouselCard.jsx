@@ -48,7 +48,7 @@ const FirstCarouselCard = () => {
 			case 0:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
 					    <p>Sereno</p>
                     </div>
@@ -56,7 +56,7 @@ const FirstCarouselCard = () => {
 			case 1:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
                         <p>Nuvoloso</p>
                     </div>
@@ -64,7 +64,7 @@ const FirstCarouselCard = () => {
 			case 2:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 					    <p>Nuvoloso</p>
                     </div>
@@ -72,7 +72,7 @@ const FirstCarouselCard = () => {
 			case 3:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 					    <p>Nuvoloso</p>
                     </div>
@@ -81,7 +81,7 @@ const FirstCarouselCard = () => {
 			case 48:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/1-2.png`} alt="sunny" />
 					    <p>Nebbia</p>
                     </div>
@@ -91,7 +91,7 @@ const FirstCarouselCard = () => {
 			case 55:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
 					    <p>Pioggerella</p>
                     </div>
@@ -101,7 +101,7 @@ const FirstCarouselCard = () => {
 			case 65:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/51-65.png`} alt="sunny" />
 					    <p>Pioggerella</p>
                     </div>
@@ -111,7 +111,7 @@ const FirstCarouselCard = () => {
 			case 75:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/71-75.png`} alt="sunny" />
 					    <p>Neve</p>
                     </div>
@@ -119,7 +119,7 @@ const FirstCarouselCard = () => {
 			case 95:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/95.png`} alt="sunny" />
                         <p>Temporale</p>
                     </div>
@@ -128,7 +128,7 @@ const FirstCarouselCard = () => {
 			case 99:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
                         <p>Grandine</p>
                     </div>
@@ -136,7 +136,7 @@ const FirstCarouselCard = () => {
 			default:
 				return (
 					<div  className={"weatherCard"}>
-                        <h5>{weekday}</h5>
+                        <h5 className="pt-2">{weekday}</h5>
 						<img src={`${process.env.PUBLIC_URL}/zero.png`} alt="sunny" />
 					    <p>Sereno</p>
                     </div>
