@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeatherData, getUserLocation, getCityName } from "../../reducers/weatherDataReducer";
 
+import { useSwiper } from 'swiper/react';
+
 const SecondCarouselCard = () => {
     const dispatch = useDispatch();
     const weather = useSelector((state) => state.weather);
@@ -15,6 +17,9 @@ const SecondCarouselCard = () => {
 		windList,
 	} = weather;
     console.log("DATAAA: ", weather.weatherCodeList);
+	const [filteredtemperatureList,setFilteredtemperatureList] = useState([]);
+
+	const swiper = useSwiper();
 
     const switcherWeatherCode = (code) => {
 		switch (code) {
@@ -93,7 +98,7 @@ const SecondCarouselCard = () => {
 				return (
 					<div  className={"d-flex weatherSecondCard"}>
 						<img src={`${process.env.PUBLIC_URL}/96-99.png`} alt="sunny" />
-                        <p>Temporale con grandine</p>
+                        <p>Grandine</p>
                     </div>
 				);
 			default:
@@ -106,6 +111,22 @@ const SecondCarouselCard = () => {
 		}
 	};
 
+	const getFilteredtemperatureList = (list) => {
+		const now = new Date();
+		const pad = (n) => n.toString().padStart(2, '0');
+		//serve a prendere un numero esempio (3, 12, 7) e lo trasforma in una stringa con almeno 2 cifre 3--> 03
+		//per formattare mesi, giorni e ore in modo che abbiano sempre due cifre, come lo standard ISO (yyyy-mm-ddThh:mm).
+		const formatted = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:00`;
+
+
+		const index = list.findIndex(item => item.time === formatted) + 1;
+
+		if (index === -1) return;
+
+		const result = list.slice(index, index + 5);
+		setFilteredtemperatureList(result);
+	}
+
 
     useEffect(() => {
             dispatch(getUserLocation());
@@ -117,21 +138,33 @@ const SecondCarouselCard = () => {
                 dispatch(getCityName(location));
             }
         }, [location, dispatch]);
+
+		useEffect(() => {
+			if (weather.weatherCodeList?.length > 0) {
+				swiper?.update();  //serve per forza l’aggiornamentoo
+			}
+		}, [weather, swiper]);
+
+		useEffect(()=>{
+			getFilteredtemperatureList(weather.temperatureList);
+		}, [weather.temperatureList]);
+
+
     return(
         <div id="secondCard" className="d-flex">
             <div className="d-flex flex-column">
                 {weather.weatherCodeList && weather.weatherCodeList.slice(0,5).map((code, i)=>(
                     <div className="d-flex">
-                        <div key={i}>{switcherWeatherCode(code.weatherCode)}</div>
+                        <div key={`A${i}`}>{switcherWeatherCode(code.weatherCode)}</div>
                     </div>
                 ))}
             </div>
-            <div className="d-flex flex-column">
-                {weather.temperatureList && weather.temperatureList.slice(0,5).map((t, j)=>(
-                <div className="d-flex pb-4 ps-3">
-                    <h4 key={j} className="ms-3">{t.temperature}°</h4>
-                    <div className="ms-5">{t.time.split("T")[1]}</div>
-                </div>
+            <div className="d-flex flex-column align-items-end">
+				{filteredtemperatureList.length > 0 && filteredtemperatureList.map((t, j) =>(
+						<div className="d-flex pb-4 ps-3">
+						<h4 key={`B${j}`} className="ms-3">{t.temperature}°</h4>
+						<div className="ms-5">{t.time.split("T")[1]}</div>
+                	</div>
                 ))}
             </div>
              
