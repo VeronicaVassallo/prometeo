@@ -1,10 +1,22 @@
 .containerCarousel{
-    position: relative;
-    top: 68vh;
+    position: absolute;
+    top: 90%;
     z-index: 100;
     width: 95vw;
     height: 50vh;
     display: flex;
     overflow: hidden;
+}
+
+@media only screen and (max-width: 767px) {
+    .containerCarousel{
+        position: relative;
+        top: 68vh;
+        z-index: 100;
+        width: 95vw;
+        height: 50vh;
+        display: flex;
+        overflow: hidden;
+    }
 }
 

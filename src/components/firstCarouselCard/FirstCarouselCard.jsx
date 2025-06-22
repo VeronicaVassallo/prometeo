@@ -158,7 +158,7 @@ const FirstCarouselCard = () => {
 
     return(
         <div id="firstCard" className="d-flex justify-content-around flex-wrap">
-            {/*Da questa lista  weather.weatherCodeList mi prendermi i weatherCode dei 4 giorni successivi alla data di oggi, della stessa ora corrente.
+            {/*Da questa lista  weather.weatherCodeList mi prende i weatherCode dei 4 giorni successivi alla data di oggi, della stessa ora corrente.
             Esempio: weatherCode di lunedi alle 16:00, weatherCode di martedi alle 16:00,weatherCode di mercoledi alle 16:00 e weatherCode 
             di giovedi alle 16:00 */}
             {filteredData && filteredData.map((item, i) => (

@@ -30,9 +30,6 @@ const CarouselCard = () => {
                 <SwiperSlide>
                     <SecondCarouselCard />
                 </SwiperSlide>
-                <SwiperSlide>
-                    <ThirdCarouselCard />
-                </SwiperSlide>
             </Swiper>
         </div>
     )

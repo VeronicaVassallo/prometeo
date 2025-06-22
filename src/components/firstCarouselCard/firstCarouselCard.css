@@ -1,12 +1,23 @@
 #firstCard{
-    height: 90%;
+    height: 100%;
     width: 90%;
     background-color: rgba(255, 255, 255, 0.726);
     backdrop-filter: blur(20px); /*sfoca*/
-    border-radius: 5%;
+    border-radius: 20px;
     margin: 0% 8% 0% 8%;
 }
 					
 .weatherCard img{
     width: 70px;
+}
+
+@media only screen and (max-width: 767px) {
+    #firstCard{
+        height: 90%;
+        width: 90%;
+        background-color: rgba(255, 255, 255, 0.726);
+        backdrop-filter: blur(20px); /*sfoca*/
+        border-radius: 5%;
+        margin: 0% 8% 0% 8%;
+    }
 }

@@ -4,3 +4,7 @@
     --cloudy: rgb(1, 189, 252);
     --night: rgb(47, 39, 135);
 }
+
+*{
+    color: rgb(27, 27, 111) !important;
+}

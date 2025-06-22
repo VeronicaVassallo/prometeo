@@ -95,7 +95,7 @@ const NavbarComponent = (isScrolling) => {
 						</select>
 					</div>
 
-					<div>darkmode</div>
+					{/*<div>darkmode</div>*/}
 				</form>
 			</nav>
 
@@ -134,12 +134,12 @@ const NavbarComponent = (isScrolling) => {
 							<option value="english">English</option>
 						</select>
 					</div>
-
-					<div className="ms-2">
-						<label htmlFor="darkmode">darkmode </label>
-						<input type="radio" name="darkmode" />
-						
-					</div>
+					{/*
+						<div className="ms-2">
+							<label htmlFor="darkmode">darkmode </label>
+							<input type="radio" name="darkmode" />
+						</div>
+					*/}
 				</form>
 			</nav>
 

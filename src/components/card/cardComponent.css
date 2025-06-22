@@ -5,13 +5,12 @@
 .card-weather {
 	width: 80vw;
 	margin: auto;
-	padding-top: 18%;
+	padding-top: 10%;
 	height: 88vh;
 	border-radius: 15px;
 	background-color: rgb(255, 255, 255, 0.5);
 	position: relative;
 	z-index: 3;
-	/*border: solid rgb(48, 42, 165) 2px;*/
 	backdrop-filter: blur(20px); /*sfoca*/
 }
 
@@ -27,7 +26,6 @@
 	z-index: 3;
 	backdrop-filter: blur(20px); /*sfoca*/
 	/*border: solid rgb(48, 42, 165) 2px;*/
-	position: fixed;
 }
 
 
@@ -72,21 +70,25 @@
 	height: 8em;
 }
 /*temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
-#weather > p, #weather p{
+.weather > p, .weather p{
 	color: rgb(27, 27, 111);
 }
 
-#weather > p{
-	font-size: large;
+.weather > p{
+	font-size: 18pt;
 	font-weight: 600;
-	transform: translateY(-55%);
+	transform: translateY(90%);
 }
 
-#weather img {
-	width: 60%;
+.weather img {
+	width: 20%;
+	padding-top: 2%;
 }
 #temperature {
 	font-size: 65pt;
+	position: absolute;
+	top: 75%;
+	right: 65%;
 }
 #temperatureScrolling {
 	font-size: 21pt;
@@ -102,17 +104,119 @@
 
 /*Animation Scrolling*/
 #animationScrolling{
-	background-color: white;
-	position: sticky;
-	top: 5px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: start;	   
+	position: static; 
 }
 
 .c-humidity-wind{
 	padding: 45% 0%;
+	display: flex;
+}
+
+.containerHumidityWindMd{
+	position: absolute;
+	top: 80%;
+	right: 10%;
+	font-size: 15pt;
+	font-weight: 600;
 }
 
 
+@media only screen and (max-width: 767px) {
+	#headCard {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	/*temperatura (ex: 10°) + descrizione meteo (ex: soleggiato)*/
+	#weather > p, #weather p{
+		color: rgb(27, 27, 111);
+	}
+	.card-weather {
+		width: 80vw;
+		margin: auto;
+		padding-top: 18%;
+		height: 88vh;
+		border-radius: 15px;
+		background-color: rgb(255, 255, 255, 0.5);
+		position: relative;
+		z-index: 3;
+		/*border: solid rgb(48, 42, 165) 2px;*/
+		backdrop-filter: blur(20px); /*sfoca*/
+	}
+	.weather > p{
+		font-size: large;
+		font-weight: 600;
+		transform: translateY(-55%);
+	}
+
+	.weather img {
+		width: 60%;
+		padding-top: 2%;
+	}
+	.card-weather-scrolling{
+		width: 80vw;
+		margin: 6% auto;
+		padding-top: 1%;
+		height: 40vh;
+		border-radius: 15px;
+		background-color: rgb(255, 255, 255, 0.5);
+		top: 1em;
+		left: 2.5em;
+		z-index: 3;
+		backdrop-filter: blur(20px); /*sfoca*/
+		/*border: solid rgb(48, 42, 165) 2px;*/
+		position: fixed;
+	}
+	.weather-scrolling {
+		margin-top: 1em;
+		position: fixed;
+		width: 50vw;
+		height: 20vh;
+		top: 2em;
+	}
+
+	.weather-scrolling img{
+		margin-left: 40%;
+		height: 8em;
+	}
+
+	.c-humidity-wind{
+		padding: 45% 0%;
+		display: static;
+	}
+
+	.weather > p{
+		font-size: large;
+		font-weight: 600;
+		transform: translateY(-55%);
+	}
+
+	/*Animation Scrolling*/
+	#animationScrolling{
+		background-color: white;
+		position: sticky;
+		top: 5px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;	   
+	}
+
+	#temperature {
+		font-size: 65pt;
+		position: static;
+		top: 0px;
+		right: opx;
+	}
+	#temperatureScrolling {
+		font-size: 21pt;
+		font-weight: 600;
+		padding-left: 13%;
+	}
+
+	#temperatureScrolling + p{
+		padding-left: 13%;
+		transform: translateY(-48%);
+		width: 30%;
+	}
+}

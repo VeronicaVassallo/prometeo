@@ -60,16 +60,13 @@ export const getCityName = createAsyncThunk(
 const weatherSlice = createSlice({
 	name: "weather",
 	initialState: {
-		//Liste di oggetti, tipo "dizionario" {time + temperature(weatherCode, humidity, etc..)}
-		//TODO: al momento qui mi prendo tutti i dati del meteo, devo mettere nella prima carta del carusello le informazioni 
-		// del meteo dei giorni successivi. Nella seconda Card i dati del meteo le previsoni della giornata. Nell'ultima carte altre info..
 		temperatureList: [],
 		weatherCodeList: [],
 		windList: [],
 		humidityList: [],
 		city: "",
 		location: null,
-		status: "idle",//dall'inglese "inattivo", ossia lo stato iniziale prima che succeda qualcosa", in questo caso l'utilizzaimo per capire in che stato è la chiamata asinicrona
+		status: "idle",
 		error: null,
 	},
 	reducers: {

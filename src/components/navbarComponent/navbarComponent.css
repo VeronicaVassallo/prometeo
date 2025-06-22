@@ -22,7 +22,7 @@ div svg {
 }
 
 .contanirForm {
-	margin-top: 15%;
+	margin-top: 0%;
 	width: 100vw;
 	display: flex;
 	align-items: center;
@@ -44,12 +44,16 @@ input {
 /*When window is scrolling add or remove these class*/
 
 .isScrolling{
-	margin-top: 7%;
+	margin-top: 0%;
 }
 
 
 @media only screen and (max-width: 767px) {
+	.isScrolling{
+		margin-top: 5%;
+	}
 	.contanirForm {
+		margin-top: 15%;
 		position: absolute;
 		z-index: 4;
 		top: 6%;

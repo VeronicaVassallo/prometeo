@@ -7,8 +7,9 @@
     border-radius: 40px 40px 0px 0px;   
 }
 .isScrolling div{
-   height: 70vh !important;
-   top: 83h;
+   height: 100vh !important;
+   top: 13h;
+   border-radius: 0px;   
 }
 
 #mainComponent.sunny div{
@@ -25,4 +26,19 @@
 
  #mainComponent.night div{
     background-color: var(--night);
+ }
+
+ @media only screen and (max-width: 767px) {
+   #mainComponent div{
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      z-index: 0;
+      top: 53vh;
+      border-radius: 40px 40px 0px 0px;   
+   }
+   .isScrolling div{
+      height: 70vh !important;
+      top: 83h;
+   }
  }
